@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yatri Pipariya | Personal Blog & Thoughts</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1c2233;--mute:#667089;--brand:#4f46e5;--brand2:#0ea5e9;--line:#e4e7f0;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo b{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-size:15px}
+.logo span{font-weight:700;line-height:1.15}.logo small{display:block;font-weight:400;color:var(--mute);font-size:12px}
+.links{display:flex;gap:6px}
+.links a{padding:8px 14px;border-radius:10px;font-weight:600;font-size:14px;color:var(--mute)}
+.links a:hover{background:#eef0fb;color:var(--brand)}
+.links a.cta{background:var(--brand);color:#fff}.links a.cta:hover{background:#4338ca}
+/* hero */
+.hero{padding:56px 0 30px;display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center}
+.tag{display:inline-block;background:#e0e7ff;color:var(--brand);font-weight:600;font-size:13px;padding:5px 12px;border-radius:99px}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.1;margin:16px 0}
+h1 em{font-style:normal;color:var(--brand)}
+.hero p{color:var(--mute);max-width:520px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;max-width:520px}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--mute)}
+.facts b{display:block;color:var(--ink);font-size:14px;letter-spacing:.5px}
+.hero-img{border-radius:24px;overflow:hidden;box-shadow:0 20px 50px rgba(79,70,229,.2);aspect-ratio:4/3}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+/* profile */
+.profile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;margin:20px 0 10px}
+.avatar{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-size:28px;font-weight:700;display:grid;place-items:center}
+.profile h2{font-size:22px}
+.enroll{display:inline-block;margin-top:8px;background:#f1f5f9;border:1px dashed #94a3b8;border-radius:8px;padding:3px 10px;font-size:13px;font-weight:600}
+.profile p{color:var(--mute);font-size:14px;margin-top:6px}
+.stats{display:flex;gap:26px;text-align:center}
+.stats b{display:block;font-size:26px;color:var(--brand)}.stats span{font-size:12px;color:var(--mute)}
+/* sections */
+section{padding:40px 0}
+.sh h2{font-size:28px}.sh p{color:var(--mute);margin-top:4px}
+/* form */
+.form{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form .full{grid-column:1/-1}
+label{font-size:13px;font-weight:600;display:block;margin-bottom:5px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fbfcff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px}
+textarea{min-height:120px;resize:vertical}
+.row{display:flex;gap:10px;justify-content:flex-end}
+button{font:inherit;font-weight:600;border:0;border-radius:10px;padding:10px 20px;cursor:pointer}
+.b1{background:var(--brand);color:#fff}.b1:hover{background:#4338ca}
+.b2{background:#eef0fb;color:var(--ink)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+/* filters */
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:20px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:1px solid var(--line);color:var(--mute);padding:7px 14px;border-radius:99px;font-size:13px}
+.chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.bar input{max-width:260px}
+/* posts */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.post{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.post img{width:100%;height:190px;object-fit:cover;display:block;background:#e5e7eb}
+.pb{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cat{font-size:12px;font-weight:700;color:var(--brand)}
+.post h3{font-size:18px;line-height:1.3}
+.meta{font-size:12px;color:var(--mute)}
+.txt{font-size:14px;color:#3b4459;white-space:pre-line}
+.act{display:flex;gap:8px;margin-top:auto;padding-top:10px}
+.act button{padding:6px 12px;font-size:13px;background:#f1f3fa;color:var(--ink)}
+.act button.liked{background:#fee2e2;color:#b91c1c}
+.cm{border-top:1px solid var(--line);margin-top:8px;padding-top:10px;display:none}
+.cm.open{display:block}
+.cm p{font-size:13px;background:#f6f7fb;padding:6px 10px;border-radius:8px;margin-bottom:6px}
+.cm form{display:flex;gap:6px}.cm input{padding:7px 10px;font-size:13px}.cm button{padding:7px 12px;font-size:13px}
+.empty{text-align:center;color:var(--mute);padding:40px;grid-column:1/-1}
+footer{background:#1c2233;color:#c7cde0;text-align:center;padding:30px 20px;margin-top:30px;font-size:14px}
+footer b{color:#fff}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(90px);background:#1c2233;color:#fff;padding:10px 20px;border-radius:10px;transition:.3s;z-index:50}
+#toast.show{transform:translateX(-50%) translateY(0)}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.profile{grid-template-columns:1fr;text-align:center;justify-items:center}.form{grid-template-columns:1fr}.links a:not(.cta){display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#top" class="logo"><b>YP</b><span>Yatri Pipariya<small>Surat, Gujarat</small></span></a>
+  <div class="links"><a href="#about">About</a><a href="#blogs">Articles</a><a href="#new-post" class="cta">Write Post</a></div>
+</div></nav>
+
+<main id="top" class="wrap">
+  <header class="hero" id="about">
+    <div>
+      <span class="tag">Student &amp; Tech Explorer</span>
+      <h1>Hi, I'm <em>Yatri Pipariya.</em></h1>
+      <p>Welcome to my personal digital journal! I am a student living, learning and creating in <b>Surat</b>, Gujarat — the textile &amp; diamond hub of India. This space is dedicated to my college projects, web development adventures, and personal stories.</p>
+      <div class="facts">
+        <div>Name<b>Y A T R I</b></div>
+        <div>Surname<b>P I P A R I Y A</b></div>
+        <div>Enrollment No.<b>25SE02ML491</b></div>
+        <div>Current City<b>Surat, Gujarat</b></div>
+      </div>
+    </div>
+    <div class="hero-img"><img id="heroImg" alt="Illustration of a laptop and city skyline at sunset"></div>
+  </header>
+
+  <div class="profile">
+    <div class="avatar">YP</div>
+    <div>
+      <h2>Pipariya Yatri Pravinbhai</h2>
+      <span class="enroll">Enrollment: 25SE02ML491</span>
+      <p>Web App Development Final Project — built with pure HTML5, CSS and client-side JavaScript. Supports blog posting, live image uploads, search, likes, comments and localStorage saving.</p>
+    </div>
+    <div class="stats"><div><b id="sPosts">0</b><span>Published Posts</span></div><div><b id="sLikes">0</b><span>Reader Likes</span></div></div>
+  </div>
+
+  <section id="new-post">
+    <div class="sh"><h2>Create a New Blog Post</h2><p>Publish your story with custom images and instant local saving.</p></div>
+    <form class="form" id="postForm">
+      <div class="full"><label for="fTitle">Article Title *</label><input id="fTitle" required maxlength="100" placeholder="e.g. My first week at college"></div>
+      <div><label for="fAuthor">Author Name</label><input id="fAuthor" value="Yatri Pipariya"></div>
+      <div><label for="fCat">Category</label>
+        <select id="fCat"><option>Personal Journey</option><option>Surat City</option><option>Web Development</option><option>College Life</option><option>General</option></select></div>
+      <div><label for="fFile">Upload Image (Optional)</label><input type="file" id="fFile" accept="image/*"></div>
+      <div><label for="fUrl">Or Image Web URL</label><input id="fUrl" type="url" placeholder="https://..."></div>
+      <div class="full"><label for="fBody">Blog Content *</label><textarea id="fBody" required placeholder="Write your story..."></textarea></div>
+      <div class="full row"><button type="reset" class="b2">Clear</button><button type="submit" class="b1">Publish Article</button></div>
+    </form>
+  </section>
+
+  <section id="blogs">
+    <div class="sh"><h2>Recent Publications</h2><p>Explore articles written by Yatri Pipariya and community contributors.</p></div>
+    <div class="bar">
+      <div class="chips" id="chips"></div>
+      <input id="search" type="search" placeholder="Search articles..." aria-label="Search articles">
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<footer>Designed and Built by <b>Yatri Pipariya</b> (Pipariya Yatri Pravinbhai) &bull; Enrollment No. <b>25SE02ML491</b><br>Web App Development Submission</footer>
+<div id="toast" role="status"></div>
+
+<script>
+/* ---------- built-in illustrations (offline SVG) ---------- */
+function svg(s){return 'data:image/svg+xml;utf8,'+encodeURIComponent(s)}
+const IMG={
+ hero:svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset=".6" stop-color="#f97316"/><stop offset="1" stop-color="#fde68a"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><circle cx="560" cy="360" r="90" fill="#fff4c2" opacity=".95"/><g fill="#1e1b4b"><rect x="40" y="330" width="70" height="270"/><rect x="120" y="270" width="60" height="330"/><rect x="190" y="360" width="80" height="240"/><rect x="280" y="300" width="55" height="300"/><rect x="620" y="320" width="70" height="280"/><rect x="700" y="380" width="80" height="220"/></g><g fill="#fde68a" opacity=".8"><rect x="55" y="350" width="10" height="14"/><rect x="80" y="380" width="10" height="14"/><rect x="135" y="300" width="10" height="14"/><rect x="155" y="340" width="10" height="14"/><rect x="295" y="330" width="10" height="14"/><rect x="640" y="350" width="10" height="14"/><rect x="720" y="410" width="10" height="14"/></g><rect x="300" y="420" width="240" height="150" rx="10" fill="#0f172a"/><rect x="316" y="434" width="208" height="112" rx="4" fill="#1e293b"/><g fill="#38bdf8"><rect x="330" y="450" width="90" height="8" rx="4"/><rect x="340" y="468" width="120" height="8" rx="4" fill="#a78bfa"/><rect x="340" y="486" width="70" height="8" rx="4" fill="#4ade80"/><rect x="330" y="504" width="100" height="8" rx="4"/></g><rect x="270" y="570" width="300" height="14" rx="7" fill="#334155"/></svg>`),
+ surat:svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#bae6fd"/></linearGradient></defs><rect width="800" height="500" fill="url(#a)"/><circle cx="640" cy="90" r="45" fill="#fef08a"/><g fill="#fff" opacity=".9"><ellipse cx="150" cy="90" rx="70" ry="22"/><ellipse cx="200" cy="75" rx="45" ry="20"/><ellipse cx="420" cy="140" rx="60" ry="18"/></g><g fill="#475569"><rect x="60" y="230" width="60" height="150"/><rect x="130" y="180" width="50" height="200"/><rect x="190" y="250" width="70" height="130"/><rect x="560" y="200" width="60" height="180"/><rect x="630" y="250" width="80" height="130"/></g><rect y="380" width="800" height="120" fill="#0369a1"/><path d="M0 410 Q100 395 200 410 T400 410 T600 410 T800 410" stroke="#7dd3fc" stroke-width="4" fill="none"/><path d="M0 445 Q100 430 200 445 T400 445 T600 445 T800 445" stroke="#7dd3fc" stroke-width="3" fill="none"/><rect x="0" y="360" width="800" height="14" fill="#1e293b"/><g stroke="#1e293b" stroke-width="4"><path d="M100 360V300M300 360V300M500 360V300M700 360V300"/><path d="M100 300Q200 340 300 300Q400 340 500 300Q600 340 700 300" fill="none"/></g><g fill="#f59e0b"><polygon points="360,320 400,320 390,290 370,290"/><rect x="368" y="270" width="24" height="20"/></g></svg>`),
+ code:svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#0f172a"/><rect x="90" y="60" width="620" height="360" rx="16" fill="#1e293b"/><circle cx="120" cy="88" r="7" fill="#ef4444"/><circle cx="145" cy="88" r="7" fill="#f59e0b"/><circle cx="170" cy="88" r="7" fill="#22c55e"/><g font-family="Consolas,monospace" font-size="22"><text x="120" y="150" fill="#94a3b8">&lt;<tspan fill="#38bdf8">html</tspan>&gt;</text><text x="150" y="190" fill="#94a3b8">&lt;<tspan fill="#f472b6">body</tspan>&gt;</text><text x="180" y="230" fill="#94a3b8">&lt;<tspan fill="#4ade80">h1</tspan>&gt;<tspan fill="#fde68a">Hello World</tspan>&lt;/<tspan fill="#4ade80">h1</tspan>&gt;</text><text x="150" y="270" fill="#94a3b8">&lt;/<tspan fill="#f472b6">body</tspan>&gt;</text><text x="120" y="310" fill="#94a3b8">&lt;/<tspan fill="#38bdf8">html</tspan>&gt;</text></g><rect x="120" y="345" width="14" height="26" fill="#38bdf8"/><rect x="250" y="440" width="300" height="12" rx="6" fill="#334155"/></svg>`),
+ college:svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><defs><linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#fbcfe8"/></linearGradient></defs><rect width="800" height="500" fill="url(#c)"/><rect y="400" width="800" height="100" fill="#4ade80"/><rect x="180" y="200" width="440" height="200" fill="#fef3c7"/><polygon points="160,200 400,100 640,200" fill="#b45309"/><rect x="370" y="290" width="60" height="110" fill="#78350f"/><g fill="#38bdf8"><rect x="210" y="240" width="55" height="50"/><rect x="290" y="240" width="55" height="50"/><rect x="455" y="240" width="55" height="50"/><rect x="535" y="240" width="55" height="50"/></g><rect x="396" y="40" width="8" height="70" fill="#475569"/><polygon points="404,42 450,58 404,74" fill="#ef4444"/><g><circle cx="90" cy="380" r="34" fill="#16a34a"/><rect x="85" y="400" width="10" height="40" fill="#78350f"/><circle cx="710" cy="380" r="34" fill="#16a34a"/><rect x="705" y="400" width="10" height="40" fill="#78350f"/></g></svg>`),
+ book:svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#fef3c7"/><rect x="120" y="120" width="560" height="300" rx="12" fill="#92400e"/><rect x="140" y="100" width="250" height="300" rx="6" fill="#fff"/><rect x="410" y="100" width="250" height="300" rx="6" fill="#fff"/><g fill="#cbd5e1"><rect x="165" y="140" width="200" height="10" rx="5"/><rect x="165" y="170" width="170" height="10" rx="5"/><rect x="165" y="200" width="200" height="10" rx="5"/><rect x="435" y="140" width="200" height="10" rx="5"/><rect x="435" y="170" width="150" height="10" rx="5"/><rect x="435" y="200" width="200" height="10" rx="5"/></g><circle cx="535" cy="300" r="50" fill="#fbbf24"/><path d="M515 300l14 14 28-30" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`)
+};
+document.getElementById('heroImg').src=IMG.hero;
+
+/* ---------- data ---------- */
+const CATS=['Personal Journey','Surat City','Web Development','College Life','General'];
+const KEY='yatri_blog_posts_v1';
+const seed=[
+ {id:1,title:'Life in Surat: The City of Diamonds & Textiles',author:'Yatri Pipariya',cat:'Surat City',img:IMG.surat,likes:15,liked:false,date:'2026-09-12',comments:['Great write-up!'],
+  body:'Surat never sleeps. From early morning chai stalls to the glow of the Tapi riverfront at night, this city runs on hard work.\n\nEvery street has a story — from textile markets to diamond workshops that supply the world. Living here has taught me the value of discipline and community.'},
+ {id:2,title:'My First Steps in Web Development',author:'Yatri Pipariya',cat:'Web Development',img:IMG.code,likes:16,liked:false,date:'2026-09-20',comments:[],
+  body:'I started with a simple "Hello World" page in HTML. Then came CSS for styling and JavaScript to make things interactive.\n\nThis blog itself is my final project: it saves posts in the browser using localStorage, supports image uploads, search, likes and comments.'},
+ {id:3,title:'College Life: Learning Beyond the Classroom',author:'Yatri Pipariya',cat:'College Life',img:IMG.college,likes:11,liked:false,date:'2026-09-27',comments:[],
+  body:'College is not only about lectures. It is late-night group projects, canteen conversations and learning how to manage time.\n\nBeing enrolled as 25SE02ML491 feels like the start of a long journey, and I am excited to see where it goes.'}
+];
+let posts;
+try{posts=JSON.parse(localStorage.getItem(KEY))}catch(e){posts=null}
+if(!Array.isArray(posts)||!posts.length)posts=seed;
+let filter='All',q='';
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(posts))}catch(e){toast('Saved for this session only (storage unavailable)')}};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2400)}
+
+/* ---------- render ---------- */
+function render(){
+  $('sPosts').textContent=posts.length;
+  $('sLikes').textContent=posts.reduce((a,p)=>a+p.likes,0);
+  $('chips').innerHTML=['All',...CATS].map(c=>`<button class="chip ${c===filter?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('');
+  const list=posts.filter(p=>(filter==='All'||p.cat===filter)&&(p.title+p.body+p.author).toLowerCase().includes(q));
+  $('grid').innerHTML=list.length?list.map(p=>`
+   <article class="post">
+     <img src="${esc(p.img)}" alt="${esc(p.title)}" onerror="this.src='${IMG.book.replace(/'/g,"%27")}'">
+     <div class="pb">
+       <span class="cat">${esc(p.cat)}</span>
+       <h3>${esc(p.title)}</h3>
+       <div class="meta">By ${esc(p.author)} &bull; ${esc(p.date)}</div>
+       <div class="txt">${esc(p.body)}</div>
+       <div class="act">
+         <button data-like="${p.id}" class="${p.liked?'liked':''}">${p.liked?'♥':'♡'} ${p.likes}</button>
+         <button data-cm="${p.id}">Comments (${p.comments.length})</button>
+         <button data-del="${p.id}">Delete</button>
+       </div>
+       <div class="cm" id="cm${p.id}">
+         ${p.comments.map(c=>`<p>${esc(c)}</p>`).join('')}
+         <form data-form="${p.id}"><input placeholder="Add a comment..." required aria-label="Comment"><button class="b1">Post</button></form>
+       </div>
+     </div>
+   </article>`).join(''):'<div class="empty">No articles found. Try another category or search.</div>';
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.c){filter=b.dataset.c;render()}
+  if(b.dataset.like){const p=posts.find(x=>x.id==b.dataset.like);p.liked=!p.liked;p.likes+=p.liked?1:-1;save();render()}
+  if(b.dataset.cm){$('cm'+b.dataset.cm).classList.toggle('open')}
+  if(b.dataset.del&&confirm('Delete this article?')){posts=posts.filter(x=>x.id!=b.dataset.del);save();render();toast('Article deleted')}
+});
+document.addEventListener('submit',e=>{
+  const f=e.target;if(!f.dataset.form)return;e.preventDefault();
+  const p=posts.find(x=>x.id==f.dataset.form),v=f.querySelector('input').value.trim();
+  if(v){p.comments.push(v);save();render();$('cm'+p.id).classList.add('open');toast('Comment added')}
+});
+$('search').addEventListener('input',e=>{q=e.target.value.toLowerCase();render()});
+
+/* ---------- new post ---------- */
+$('postForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const add=img=>{
+    posts.unshift({id:Date.now(),title:$('fTitle').value.trim(),author:$('fAuthor').value.trim()||'Yatri Pipariya',cat:$('fCat').value,
+      img:img||IMG.book,likes:0,liked:false,date:new Date().toISOString().slice(0,10),comments:[],body:$('fBody').value.trim()});
+    save();filter='All';render();$('postForm').reset();$('fAuthor').value='Yatri Pipariya';
+    toast('Published!');$('blogs').scrollIntoView();
+  };
+  const file=$('fFile').files[0];
+  if(file){
+    if(file.size>1.5*1024*1024){toast('Image too large (max 1.5 MB)');return}
+    const r=new FileReader();r.onload=()=>add(r.result);r.readAsDataURL(file);
+  }else add($('fUrl').value.trim());
+});
+render();
+</script>
+</body>
+</html>
